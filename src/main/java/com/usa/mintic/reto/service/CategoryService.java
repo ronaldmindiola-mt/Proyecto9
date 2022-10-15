@@ -19,10 +19,10 @@ public class CategoryService {
     public Optional<Category> getCategory(int id){return categoryRepository.getCategory(id);}
 
     public Category saveCategory(Category c){
-        if(c.getCategoryId()==null){
+        if(c.getId()==null){
             return categoryRepository.saveCategory(c);
         }else{
-            Optional<Category> element = categoryRepository.getCategory(c.getCategoryId());
+            Optional<Category> element = categoryRepository.getCategory(c.getId());
             if(element.isPresent()){
                 return c;
             }else{
@@ -31,8 +31,8 @@ public class CategoryService {
         }
     }
     public Category updateCategory(Category c){
-        if(c.getCategoryId()!=null){
-            Optional<Category> element = categoryRepository.getCategory(c.getCategoryId());
+        if(c.getId()!=null){
+            Optional<Category> element = categoryRepository.getCategory(c.getId());
             if(element.isPresent()){
                 if(c.getName()!=null){
                     element.get().setName(c.getName());

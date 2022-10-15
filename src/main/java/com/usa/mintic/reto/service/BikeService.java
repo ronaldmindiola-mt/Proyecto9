@@ -45,10 +45,6 @@ public class BikeService {
                     element.get().setBrand(b.getBrand());
                 }
 
-                if(b.getCategory()!=null){
-                    element.get().setCategory(b.getCategory());
-                }
-
 
                 bikeRepository.saveBike(element.get());
                 return element.get();
