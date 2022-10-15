@@ -67,11 +67,5 @@ public class Reservation implements Serializable {
         this.devotionDate = devotionDate;
     }
 
-    public Category getCategory() {
-        return category;
-    }
 
-    public void setCategory(Category category) {
-        this.category = category;
-    }
 }

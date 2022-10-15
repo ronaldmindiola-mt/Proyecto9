@@ -28,9 +28,9 @@ public class Category implements Serializable {
         return categoryId;
     }
 
-    /*public void setCategoryId(Integer categoryId) {
+    public void setCategoryId(Integer categoryId) {
         this.categoryId = categoryId;
-    }*/
+    }
 
     public String getName() {
         return name;
@@ -40,7 +40,7 @@ public class Category implements Serializable {
         this.name = name;
     }
 
-    /*public String getDescription() {
+    public String getDescription() {
         return description;
     }
 
@@ -62,5 +62,5 @@ public class Category implements Serializable {
 
     public void setReservation(List<Reservation> reservation) {
         this.reservation = reservation;
-    }*/
+    }
 }

@@ -11,7 +11,7 @@ public class Message implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer MessageId;
+    private Integer messageId;
 
     @Column(length = 250)
     private String messageText;
@@ -22,16 +22,16 @@ public class Message implements Serializable {
     private Bike bike;
 
     @ManyToOne
-    @JoinColumn(name="ClientId")
+    @JoinColumn(name="clientId")
     @JsonIgnoreProperties(value={"reservations","messages"})
     private Client client;
 
     public Integer getMessageId() {
-        return MessageId;
+        return messageId;
     }
 
     public void setMessageId(Integer messageId) {
-        MessageId = messageId;
+        this.messageId = messageId;
     }
 
     public String getMessageText() {

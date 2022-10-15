@@ -44,11 +44,11 @@ public class BikeService {
                 if(b.getBrand()!=null){
                     element.get().setBrand(b.getBrand());
                 }
-                /*
+
                 if(b.getCategory()!=null){
                     element.get().setCategory(b.getCategory());
                 }
-                */
+
 
                 bikeRepository.saveBike(element.get());
                 return element.get();

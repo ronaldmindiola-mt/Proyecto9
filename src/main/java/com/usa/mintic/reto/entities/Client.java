@@ -21,9 +21,9 @@ public class Client implements Serializable {
         return clientId;
     }
 
-    /* public void setClientId(Integer clientId) {
+    public void setClientId(Integer clientId) {
         this.clientId = clientId;
-    }*/
+    }
 
     public String getName() {
         return name;
@@ -33,7 +33,7 @@ public class Client implements Serializable {
         this.name = name;
     }
 
-    /*public Integer getAge() {
+    public Integer getAge() {
         return age;
     }
 
@@ -55,5 +55,5 @@ public class Client implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
-    }*/
+    }
 }

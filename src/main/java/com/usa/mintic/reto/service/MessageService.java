@@ -15,7 +15,7 @@ public class MessageService {
 
     public List<Message> getMessages(){return messageRepository.getMessages();}
 
-    public Optional<Message> getMessage(int id){return messageRepository.getMessage(id);}
+    public Optional<Message> getMessage(int messageID){return messageRepository.getMessage(messageID);}
 
     public Message saveMessage(Message m){
         if(m.getMessageId()==null){
@@ -29,20 +29,20 @@ public class MessageService {
             }
         }
     }
-    public Message updateMessage(Message message){
-        if(message.getMessageId()!=null){
-            Optional<Message> element= messageRepository.getMessage(message.getMessageId());
+    public Message updateMessage(Message m){
+        if(m.getMessageId()!=null){
+            Optional<Message> element= messageRepository.getMessage(m.getMessageId());
             if(element.isPresent()){
-                if(message.getMessageText()!=null){
-                    element.get().setMessageText(message.getMessageText());
+                if(m.getMessageText()!=null){
+                    element.get().setMessageText(m.getMessageText());
                 }
                 messageRepository.saveMessage(element.get());
                 return element.get();
             }else{
-                return message;
+                return m;
             }
         }else{
-            return message;
+            return m;
         }
     }
     public boolean deleteMessage(int id) {

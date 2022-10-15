@@ -51,4 +51,12 @@ public class Bike implements Serializable {
     public void setDescription(String description) {
         Description = description;
     }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
 }
