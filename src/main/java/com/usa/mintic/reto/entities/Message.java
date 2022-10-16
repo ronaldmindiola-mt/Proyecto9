@@ -46,9 +46,6 @@ public class Message implements Serializable {
         return bike;
     }
 
-    sdsdsdsasasasa
-    sdsd
-
     public void setBike(Bike bike) {
         this.bike = bike;
     }
