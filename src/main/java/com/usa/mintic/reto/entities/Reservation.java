@@ -12,43 +12,35 @@ public class Reservation implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer reservationId;
-
-    private String bike;
-
-    private String client;
-
+    private Integer idReservation;
     private Date startDate;
+    private Date devolutionDate;
 
-    private Date devotionDate;
+    @ManyToOne
+    @JoinColumn(name = "bikeId")
+    @JsonIgnoreProperties("reservations")
+    private Bike bike;
 
     @ManyToOne
     @JoinColumn(name="categoryId")
     @JsonIgnoreProperties("reservations")
     private Category category;
 
-    public Integer getReservationId() {
-        return reservationId;
+    @ManyToOne
+    @JoinColumn(name = "clientId")
+    @JsonIgnoreProperties({"reservations","messages"})
+    private Client client;
+
+    @OneToOne(cascade = {CascadeType.REMOVE},mappedBy="reservation")
+    @JsonIgnoreProperties("reservation")
+    private Score score;
+
+    public Integer getIdReservation() {
+        return idReservation;
     }
 
-    public void setReservationId(Integer reservationId) {
-        this.reservationId = reservationId;
-    }
-
-    public String getBike() {
-        return bike;
-    }
-
-    public void setBike(String bike) {
-        this.bike = bike;
-    }
-
-    public String getClient() {
-        return client;
-    }
-
-    public void setClient(String client) {
-        this.client = client;
+    public void setIdReservation(Integer idReservation) {
+        this.idReservation = idReservation;
     }
 
     public Date getStartDate() {
@@ -59,13 +51,43 @@ public class Reservation implements Serializable {
         this.startDate = startDate;
     }
 
-    public Date getDevotionDate() {
-        return devotionDate;
+    public Date getDevolutionDate() {
+        return devolutionDate;
     }
 
-    public void setDevotionDate(Date devotionDate) {
-        this.devotionDate = devotionDate;
+    public void setDevolutionDate(Date devolutionDate) {
+        this.devolutionDate = devolutionDate;
     }
 
+    public Bike getBike() {
+        return bike;
+    }
 
+    public void setBike(Bike bike) {
+        this.bike = bike;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public Score getScore() {
+        return score;
+    }
+
+    public void setScore(Score score) {
+        this.score = score;
+    }
 }

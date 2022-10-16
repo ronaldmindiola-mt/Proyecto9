@@ -20,10 +20,10 @@ public class ReservationService {
     public Optional<Reservation> getReservation(int id){return reservationRepository.getReservation(id);}
 
     public Reservation saveReservation(Reservation r){
-        if(r.getReservationId()==null){
+        if(r.getIdReservation()==null){
             return reservationRepository.saveReservation(r);
         }else{
-            Optional<Reservation> element = reservationRepository.getReservation(r.getReservationId());
+            Optional<Reservation> element = reservationRepository.getReservation(r.getIdReservation());
             if(element.isPresent()){
                 return r;
             }else {
@@ -33,24 +33,19 @@ public class ReservationService {
     }
 
     public Reservation updateReservation(Reservation r){
-        if(r.getReservationId()!=null){
-            Optional<Reservation> element = reservationRepository.getReservation(r.getReservationId());
+        if(r.getIdReservation()!=null){
+            Optional<Reservation> element = reservationRepository.getReservation(r.getIdReservation());
             if(element.isPresent()){
 
-                if(r.getReservationId()!=null){
-                    element.get().setReservationId(r.getReservationId());
+                if(r.getIdReservation()!=null){
+                    element.get().setIdReservation(r.getIdReservation());
                 }
-                if(r.getBike()!=null){
-                    element.get().setBike(r.getBike());
-                }
-                if(r.getClient()!=null){
-                    element.get().setClient(r.getClient());
-                }
+
                 if(r.getStartDate()!=null){
                     element.get().setStartDate(r.getStartDate());
                 }
-                if(r.getDevotionDate()!=null){
-                    element.get().setDevotionDate(r.getDevotionDate());
+                if(r.getDevolutionDate()!=null){
+                    element.get().setDevolutionDate(r.getDevolutionDate());
                 }
                 reservationRepository.saveReservation(element.get());
                 return element.get();
