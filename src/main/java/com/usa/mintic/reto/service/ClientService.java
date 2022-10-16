@@ -38,6 +38,15 @@ public class ClientService {
                 if(c.getName()!=null){
                     element.get().setName(c.getName());
                 }
+                if(c.getEmail()!=null){
+                    element.get().setEmail(c.getEmail());
+                }
+                if(c.getPassword()!=null){
+                    element.get().setPassword(c.getPassword());
+                }
+                if(c.getAge()!=null){
+                    element.get().setAge(c.getAge());
+                }
                 clientRepository.saveClient(element.get());
                 return element.get();
             }else{
