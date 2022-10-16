@@ -2,6 +2,7 @@ package com.usa.mintic.reto.service;
 
 import com.usa.mintic.reto.entities.Admin;
 import com.usa.mintic.reto.repository.AdminRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.Optional;
 @Service
 public class AdminService {
 
+    @Autowired
     private AdminRepository adminRepository;
 
     public List<Admin> getAll() {
@@ -36,7 +38,6 @@ public class AdminService {
         }
 
     }
-
 
     public Admin updateAdmin(Admin admin){
         if(admin.getIdAdmin() !=null){
