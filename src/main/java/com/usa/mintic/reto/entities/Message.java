@@ -11,7 +11,7 @@ public class Message implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer messageId;
+    private Integer idMessage;
 
     @Column(length = 250)
     private String messageText;
@@ -26,12 +26,12 @@ public class Message implements Serializable {
     @JsonIgnoreProperties(value={"reservations","messages"})
     private Client client;
 
-    public Integer getMessageId() {
-        return messageId;
+    public Integer getIdMessage() {
+        return idMessage;
     }
 
-    public void setMessageId(Integer messageId) {
-        this.messageId = messageId;
+    public void setIdMessage(Integer messageId) {
+        this.idMessage = messageId;
     }
 
     public String getMessageText() {
@@ -45,6 +45,9 @@ public class Message implements Serializable {
     public Bike getBike() {
         return bike;
     }
+
+    sdsdsdsasasasa
+    sdsd
 
     public void setBike(Bike bike) {
         this.bike = bike;

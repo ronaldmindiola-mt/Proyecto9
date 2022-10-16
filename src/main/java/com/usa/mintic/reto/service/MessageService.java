@@ -18,10 +18,10 @@ public class MessageService {
     public Optional<Message> getMessage(int messageID){return messageRepository.getMessage(messageID);}
 
     public Message saveMessage(Message m){
-        if(m.getMessageId()==null){
+        if(m.getIdMessage()==null){
             return messageRepository.saveMessage(m);
         }else{
-            Optional<Message> element = messageRepository.getMessage(m.getMessageId());
+            Optional<Message> element = messageRepository.getMessage(m.getIdMessage());
             if(element.isPresent()){
                 return m;
             }else {
@@ -30,8 +30,8 @@ public class MessageService {
         }
     }
     public Message updateMessage(Message m){
-        if(m.getMessageId()!=null){
-            Optional<Message> element= messageRepository.getMessage(m.getMessageId());
+        if(m.getIdMessage()!=null){
+            Optional<Message> element= messageRepository.getMessage(m.getIdMessage());
             if(element.isPresent()){
                 if(m.getMessageText()!=null){
                     element.get().setMessageText(m.getMessageText());

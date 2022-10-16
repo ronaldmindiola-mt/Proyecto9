@@ -13,13 +13,15 @@ public class Bike implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String brand;
-    private String name;
+    private Integer year;
 
-    private String Description;
+
     @ManyToOne
-    @JoinColumn(name="categoryId")
+    @JoinColumn(name="category")
     @JsonIgnoreProperties("bike")
     private Category category;
+    private String name;
+    private String description;
 
     public Integer getId() {
         return id;
@@ -27,14 +29,6 @@ public class Bike implements Serializable {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getBrand() {
@@ -45,11 +39,35 @@ public class Bike implements Serializable {
         this.brand = brand;
     }
 
+    public Integer getYear() {
+        return year;
+    }
+
+    public void setYear(Integer year) {
+        this.year = year;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getDescription() {
-        return Description;
+        return description;
     }
 
     public void setDescription(String description) {
-        Description = description;
+        this.description = description;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }
