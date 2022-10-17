@@ -78,4 +78,5 @@ public class Bike implements Serializable {
     public void setReservations(List<Reservation> reservations) {
         this.reservations = reservations;
     }
+
 }

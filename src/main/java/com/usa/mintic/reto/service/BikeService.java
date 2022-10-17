@@ -35,17 +35,18 @@ public class BikeService {
         if(b.getId()!=null){
             Optional<Bike> element = bikeRepository.getBike(b.getId());
             if(element.isPresent()){
+                if(b.getBrand()!=null){
+                    element.get().setBrand(b.getBrand());
+                }
                 if(b.getName()!=null){
                     element.get().setName(b.getName());
                 }
                 if(b.getDescription()!=null){
                     element.get().setDescription(b.getDescription());
                 }
-                if(b.getBrand()!=null){
-                    element.get().setBrand(b.getBrand());
+                if(b.getYear()!=null){
+                    element.get().setYear(b.getYear());
                 }
-
-
                 bikeRepository.saveBike(element.get());
                 return element.get();
             }else{
